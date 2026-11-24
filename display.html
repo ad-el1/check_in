@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>QR Check-in</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <h1>Scannez pour vous enregistrer</h1>
+  <p>Le code change toutes les 5 secondes — scannez-le directement.</p>
+  <div class="card">
+    <div class="qr" id="qr"></div>
+    <div class="bar"><i id="bar"></i></div>
+    <div class="status" id="status">Chargement…</div>
+  </div>
+</div>
+<script src="lib/qrcode.min.js"></script>
+<script src="config.js"></script>
+<script src="display.js"></script>
+</body>
+</html>

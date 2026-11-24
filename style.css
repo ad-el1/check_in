@@ -1,0 +1,23 @@
+:root { --bg:#0f172a; --card:#fff; --ink:#0f172a; --muted:#64748b; --accent:#2563eb; --ok:#16a34a; --err:#dc2626; }
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: #fff;
+  display: flex; align-items: center; justify-content: center; text-align: center; padding: 16px; }
+.wrap { width: 100%; max-width: 520px; }
+h1 { font-size: clamp(1.4rem, 4vw, 2.2rem); margin: 0 0 8px; }
+p { color: #cbd5e1; margin: 8px 0; font-size: 1.05rem; }
+.card { background: var(--card); color: var(--ink); border-radius: 20px; padding: 20px; margin: 20px auto; }
+.qr { width: min(80vw, 70vh, 560px); margin: 0 auto; }
+.qr svg { width: 100%; height: auto; display: block; }
+.bar { height: 8px; background: #e2e8f0; border-radius: 99px; overflow: hidden; margin-top: 14px; }
+.bar > i { display: block; height: 100%; width: 100%; background: var(--accent); transform-origin: left; }
+.bar > i.run { animation: shrink var(--dur, 5s) linear forwards; }
+@keyframes shrink { from { transform: scaleX(1); } to { transform: scaleX(0); } }
+.status { font-size: .9rem; color: var(--muted); margin-top: 10px; min-height: 1.2em; }
+.status.err { color: var(--err); }
+.spinner { width: 44px; height: 44px; border: 5px solid #334155; border-top-color: #fff; border-radius: 50%; margin: 24px auto; animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.big { font-size: 3rem; margin: 0; }
+.err-t { color: #fca5a5; }
+button, .btn { background: var(--accent); color: #fff; border: 0; border-radius: 12px; padding: 14px 22px; font-size: 1.05rem; cursor: pointer; text-decoration: none; display: inline-block; margin-top: 12px; }
+input { width: 100%; padding: 14px; font-size: 1.1rem; border-radius: 12px; border: 0; margin-top: 12px; }
