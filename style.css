@@ -9,11 +9,18 @@ p { color: #cbd5e1; margin: 8px 0; font-size: 1.05rem; }
 .card { background: var(--card); color: var(--ink); border-radius: 20px; padding: 20px; margin: 20px auto; }
 .qr { width: 280px; margin: 0 auto; }
 .qr svg { width: 100%; height: auto; display: block; shape-rendering: crispEdges; }
-/* Écran projeté : le QR occupe toute la place disponible (carré), quel que soit le zoom ou la taille d'écran */
-.wrap.wide { max-width: none; }
-.wrap.wide h1 { font-size: clamp(1.2rem, 3.5vmin, 3rem); }
-.wrap.wide .card { width: fit-content; max-width: 100%; padding: clamp(10px, 2vmin, 24px); margin: 2vmin auto 0; }
-.wrap.wide .qr { width: min(calc(100vw - 60px), calc(100vh - 220px)); width: min(calc(100vw - 60px), calc(100dvh - 220px)); min-width: 160px; }
+/* Écran projeté : le QR occupe tout l'espace restant (carré), quel que soit le zoom ou l'écran.
+   .stage mesure l'espace libre ; le carte QR = plus petit côté de cet espace (unités cqw/cqh). */
+.wrap.wide { max-width: none; height: calc(100vh - 32px); height: calc(100dvh - 32px);
+  display: flex; flex-direction: column; align-items: center; gap: 1.5vmin; }
+.wrap.wide h1 { font-size: clamp(1.1rem, 3.5vmin, 3rem); margin: 0; flex: none; }
+.wrap.wide .stage { flex: 1; min-height: 0; width: 100%; container-type: size;
+  display: flex; align-items: center; justify-content: center; }
+.wrap.wide .card { margin: 0; padding: clamp(8px, 1.6vmin, 20px); box-sizing: border-box;
+  width: min(calc(100vw - 40px), calc(100vh - 170px));
+  width: min(100cqw, calc(100cqh - 30px)); }
+.wrap.wide .qr { width: 100%; }
+.wrap.wide .status { flex: none; margin: 0; }
 .bar { height: 8px; background: #e2e8f0; border-radius: 99px; overflow: hidden; margin-top: 14px; }
 .bar > i { display: block; height: 100%; width: 100%; background: var(--accent); transform-origin: left; }
 .bar > i.run { animation: shrink var(--dur, 5s) linear forwards; }
